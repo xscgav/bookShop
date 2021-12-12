@@ -1,19 +1,17 @@
 package com.xscgav.bookshop.entity;
 
+import com.xscgav.bookshop.entity.enums.UserStatus;
 import lombok.Data;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "user")
 @Data
-@ToString(exclude = "password")
 public class UserEntity {
 
+    public static Object setPassword;
     @Id
     @GeneratedValue
     private Integer id;
@@ -22,7 +20,22 @@ public class UserEntity {
     private String surname;
     private String email;
     private String phone;
-    private String password;
-    private String role;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    String password;
+
+    @Enumerated
+    private UserRole role;
     private String address;
+
+    @Enumerated
+    private UserStatus status;
+
 }
