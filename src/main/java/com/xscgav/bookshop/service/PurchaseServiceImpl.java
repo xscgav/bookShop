@@ -5,6 +5,7 @@ import com.xscgav.bookshop.entity.OrderEntity;
 import com.xscgav.bookshop.entity.ProductEntity;
 import com.xscgav.bookshop.entity.PurchaseItemEntity;
 import com.xscgav.bookshop.repository.OrderEntityRepo;
+import com.xscgav.bookshop.repository.PurchaseItemRepo;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ public class PurchaseServiceImpl implements PurchaseService {
     private final ProductService productService;
     private final UserService userService;
     private final OrderEntityRepo orderEntityRepo;
+    private final PurchaseItemRepo purchaseItemRepo;
 
     @Override
     public Integer finishPurchase(FinishPurchaseRequest request) {
@@ -36,6 +38,7 @@ public class PurchaseServiceImpl implements PurchaseService {
             purchaseItemEntity.setProductEntity(productEntity);
             purchaseItemEntity.setCount(v);
             purchaseItemEntity.setOrderEntity(orderEntity);
+            purchaseItemRepo.save(purchaseItemEntity);
         }
         return orderEntity.getId();
     }
