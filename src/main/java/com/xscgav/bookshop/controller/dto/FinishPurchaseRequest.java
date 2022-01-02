@@ -1,16 +1,19 @@
 package com.xscgav.bookshop.controller.dto;
 
+import com.xscgav.bookshop.entity.ProductEntity;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.util.Map;
+import java.util.List;
 
 @Data
+@ToString(exclude = "password")
 public class FinishPurchaseRequest {
 
     @NotNull
-    private Map<Integer, Integer> productIdProductCount;
+    private List<ProductEntity> productIds;
     @NotEmpty
     private String userName;
     private String userSurname;
@@ -21,5 +24,5 @@ public class FinishPurchaseRequest {
     @NotEmpty
     private String address;
     private String comment;
-
+    private String password;
 }

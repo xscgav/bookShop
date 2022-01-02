@@ -9,11 +9,11 @@ import javax.persistence.*;
 @Entity
 @Table(name = "user")
 @Data
+@ToString(exclude = "password")
 public class UserEntity {
 
-    public static Object setPassword;
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String name;
@@ -21,21 +21,13 @@ public class UserEntity {
     private String email;
     private String phone;
 
-    public String getPassword() {
-        return password;
-    }
+    private String password;
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    String password;
-
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private UserRole role;
     private String address;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private UserStatus status;
 
 }
