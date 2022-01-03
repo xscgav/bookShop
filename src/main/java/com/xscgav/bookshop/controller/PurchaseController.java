@@ -22,8 +22,8 @@ public class PurchaseController {
     private final PurchaseService purchaseService;
 
     @PostMapping("/finishPurchase")
-    public ResponseEntity finishPurchase(@Valid @RequestBody FinishPurchaseRequest request){
-        log.info("finish purchase request: {} in progress", request);
+    public ResponseEntity finishPurchase(@Valid @RequestBody FinishPurchaseRequest request) {
+        log.info("handling finish purchase request: {}", request);
         Integer orderId = purchaseService.finishPurchase(request);
         return ResponseEntity.ok(new FinishPurchaseResponse(orderId));
     }

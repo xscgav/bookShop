@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class CustomUserDetails implements UserDetails {
+
     private String login;
     private String password;
     private Collection<? extends GrantedAuthority> grantedAuthorities;

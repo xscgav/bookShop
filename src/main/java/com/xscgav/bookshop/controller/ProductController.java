@@ -20,14 +20,14 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("/products")
-    public List<ProductEntity> getAllProducts(){
-        log.info("get all products request in progress");
+    public List<ProductEntity> getAllProducts() {
+        log.info("handling get all products request");
         return productService.findAll();
     }
 
     @GetMapping("/product/{id}")
-    public ProductEntity findById(@PathVariable Integer id){
-        log.info("get product by id: {} in progress", id);
+    public ProductEntity findById(@PathVariable Integer id) {
+        log.info("handling get product by id: {}", id);
         return productService.findById(id);
     }
 }

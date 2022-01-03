@@ -15,6 +15,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import static com.xscgav.bookshop.entity.UserRole.CUSTOMER;
 import static com.xscgav.bookshop.entity.UserRole.MANAGER;
 
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
